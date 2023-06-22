@@ -35,4 +35,3 @@ class UserViewTest(APITestCase):
          response_login = cls.client.post('/api/login', cls.user_data, format="json")
          cls.assertEqual(response_login.status_code, 400)
          
-         
