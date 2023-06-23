@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.test import APIClient
 from registry.models import Doctor
 from registry.serializers import DoctorSerializer
-import ipdb
+
 
 class CreateDoctorViewTestCase(TestCase):
     @classmethod
@@ -29,9 +29,9 @@ class CreateDoctorViewTestCase(TestCase):
                 "number": "123",
                 "district": "Cidade",
                 "state": "Estado",
-                "zipcode": "12345678"
+                "zipcode": "12345678",
             },
-            "comments": "Comentários sobre o médico"
+            "comments": "Comentários sobre o médico",
         }
         cls.invalid_payload = {
             # Preencha os dados inválidos conforme necessário
@@ -75,9 +75,9 @@ class RetriveUpdateDestroyDoctorViewTestCase(TestCase):
                 "number": "123",
                 "district": "Cidade",
                 "state": "Estado",
-                "zipcode": "12345678"
+                "zipcode": "12345678",
             },
-            "comments": "Comentários sobre o médico"
+            "comments": "Comentários sobre o médico",
         }
         cls.invalid_payload = {
             # Preencha os dados inválidos conforme necessário

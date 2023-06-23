@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
     # ------------------- Doctor Routes -----------------------
-    path("doctor", views.CreateDoctorView.as_view(), name="doctorlist"),
+    path("doctor", views.CreateDoctorView.as_view(), name="doctor-list"),
     path(
         "doctor/<str:id>",
         views.RetriveUpdateDestroyDoctorView.as_view(),
