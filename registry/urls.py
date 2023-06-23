@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
     # ------------------- Doctor Routes -----------------------
     path("doctor", views.CreateDoctorView.as_view(), name="doctor-list"),
