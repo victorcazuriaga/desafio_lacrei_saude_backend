@@ -1,13 +1,20 @@
 from django.test import TestCase
 from registry.models import Doctor, Address, Patient
 from datetime import date
-import ipdb
+
 # Create your tests here.
+
 
 class DoctorModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        cls.address = Address.objects.create(street="Rua Principal", number="123", district="Cidade", state="Estado", zipcode="12345678")
+        cls.address = Address.objects.create(
+            street="Rua Principal",
+            number="123",
+            district="Cidade",
+            state="Estado",
+            zipcode="12345678",
+        )
         cls.doctor = Doctor.objects.create(
             socialName="Dr. Fulano",
             name="Fulano",
@@ -20,7 +27,7 @@ class DoctorModelTest(TestCase):
             birthdate="1990-01-01",
             is_active=True,
             address=cls.address,
-            comments="Comentários sobre o médico"
+            comments="Comentários sobre o médico",
         )
 
     def test_doctor_creation(self):
@@ -33,7 +40,7 @@ class DoctorModelTest(TestCase):
         self.assertEqual(doctor.rg, "1234567")
         self.assertEqual(doctor.crm, "123456")
         self.assertEqual(doctor.medicalSpecialty, "Cardiologia")
-        self.assertEqual(doctor.birthdate,  date(1990, 1, 1))
+        self.assertEqual(doctor.birthdate, date(1990, 1, 1))
         self.assertTrue(doctor.is_active)
         self.assertEqual(doctor.address, self.address)
         self.assertEqual(doctor.comments, "Comentários sobre o médico")
@@ -56,7 +63,7 @@ class DoctorModelTest(TestCase):
             birthdate="1990-01-01",
             is_active=True,
             address=self.address,
-            comments="Comentários sobre o médico"
+            comments="Comentários sobre o médico",
         )
         with self.assertRaises(Exception):
             invalid_doctor.save()
@@ -72,7 +79,13 @@ class DoctorModelTest(TestCase):
 class PatientModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        cls.address = Address.objects.create(street="Rua Principal", number="123", district="Cidade", state="Estado", zipcode="12345678")
+        cls.address = Address.objects.create(
+            street="Rua Principal",
+            number="123",
+            district="Cidade",
+            state="Estado",
+            zipcode="12345678",
+        )
         cls.patient = Patient.objects.create(
             socialName="Dr. Fulano",
             name="Fulano",
@@ -82,7 +95,7 @@ class PatientModelTest(TestCase):
             rg="1234567",
             birthdate="1990-01-01",
             address=cls.address,
-            comments="Comentários sobre o paciente"
+            comments="Comentários sobre o paciente",
         )
 
     def test_patient_creation(self):
@@ -113,7 +126,7 @@ class PatientModelTest(TestCase):
             rg="1234567",
             birthdate="1990-01-01",
             address=self.address,
-            comments="Comentários sobre o paciente"
+            comments="Comentários sobre o paciente",
         )
         with self.assertRaises(Exception):
             invalid_patient.save()
