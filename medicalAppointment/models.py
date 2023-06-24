@@ -24,3 +24,6 @@ class MedicalAppointment(models.Model):
         default=StatusFieldChoices.AGENDADO,
     )
     description = models.TextField()
+
+    class Meta:
+        ordering = ["appointmentDate"]
