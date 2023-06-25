@@ -1,6 +1,5 @@
 # Lacrei Saúde
 
-Descrição curta ou slogan do seu projeto.
 
 ## Índice
 
