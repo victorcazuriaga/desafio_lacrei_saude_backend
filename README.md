@@ -7,7 +7,7 @@
 - [Requisitos](#requisitos)
 - [Tecnologias](#tecnologias-utilizadas)
 - [Configuração do Ambiente Virtual](#configuração-do-ambiente-virtual)
-- [Configuração de Variaveis de ambiente ](#configuração-de-variaveis-de-ambiente)
+- [Configuração de Variáveis de ambiente ](#configuração-de-variáveis-de-ambiente)
 - [Instalação das Dependências](#instalação-das-dependências)
 - [Executando o Projeto](#executando-o-projeto)
 - [Executando com Docker](#executando-com-docker)
@@ -34,6 +34,7 @@ A API foi desenvolvida utilizando as seguintes tecnologias:
 - Python (versão 3.10.X)
 - Docker (versão 23.0.X)
 - Docker Compose (versão 2.17.X)
+- Postgres (versão 15.X.X)
 
 
 
@@ -55,7 +56,7 @@ myvenv\Scripts\activate
 ```
 source myvenv/bin/activate
 ```
-## Configuração de Variaveis de ambiente
+## Configuração de Variáveis de ambiente
 1. crie na raiz do projeto o arquivo .env
 
 2. preencha a .env de acordo com .env.example
@@ -69,7 +70,7 @@ POSTGRES_HOST={endereço do banco de dados}
 POSTGRES_PORT={porta do banco de dados }
 
 ```
-** Observação: caso utilize docker compose para executar o projeto, utilize POSTGRES_HOST='db'.
+** Observação: caso utilize docker compose para executar o projeto, insira POSTGRES_HOST='db'.
 
 ## Instalação das Dependências
 Para instalar as dependências do projeto, execute o seguinte comando:
@@ -82,7 +83,12 @@ pip install -r requirements.txt
 ## Executando o Projeto
 Siga os passos abaixo para executar o projeto:
 
-1. Execute as migrações do banco de dados:
+1. Gerar as migrações
+```
+python manage.py makemigrations
+```
+
+2. Execute as migrações do banco de dados:
 
 ```
 python manage.py migrate
@@ -119,7 +125,7 @@ payload example:
 {"username": "seu_usuario", password"sua_senha"}
 
 ```
-2. Realizar autentificação atraves do login
+2. Realizar login e autenticação
 
  ```
 Method POST: localhost:8000/api/login
